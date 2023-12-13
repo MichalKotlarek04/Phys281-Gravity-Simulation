@@ -7,7 +7,7 @@ from astropy.constants import G
 class getBodyState:
     t = Time("2019-11-27 17:00:00.0", scale="tdb")
     def __init__(self, body):
-        pos, vel = get_body_barycentric_posvel(body, t, ephemeris="jpl")
+        pos, vel = get_body_barycentric_posvel(body, self.t, ephemeris="jpl")
 
         state_vector = [pos.xyz[0].to("m").value,
                     pos.xyz[1].to("m").value,
@@ -17,7 +17,7 @@ class getBodyState:
                     vel.xyz[2].to("m/s").value]
 
 
-        trans = sxform("J2000", "ECLIPJ2000", t.jd)
+        trans = sxform("J2000", "ECLIPJ2000", self.t.jd)
 
         statevececl = mxvg(trans, state_vector)
 
@@ -25,4 +25,4 @@ class getBodyState:
         velocity = [statevececl[3], statevececl[4], statevececl[5]]
 
         # finds initial position and velocity (with respect to solar system barycentre) of the body
-        self.initial_state = [position, velocity]
+        self.initialState = [position, velocity]

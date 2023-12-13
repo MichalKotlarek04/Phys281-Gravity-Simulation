@@ -7,7 +7,7 @@ class Particle:
     def __init__(self,
     position=np.array([0, 0, 0], dtype=float),
     velocity=np.array([0, 0, 0], dtype=float),
-    acceleration=np.array([0, -10, 0], dtype=float),
+    acceleration=np.array([0, 0, 0], dtype=float),
     name='Ball',mass=1.0):
         self.position = np.array(position, dtype=float)
         self.velocity = np.array(velocity, dtype=float)
@@ -20,15 +20,24 @@ class Particle:
         self.name, self.mass,self.position, self.velocity, self.acceleration)
 
     def update(self, deltaT):
-        self.position += self.velocity*deltaT
+
+        '''r = np.linalg.norm(body.position-self.position) # finds distance between 2 bodies
+        direction_vector = (body.position-self.position)/r # unit vector for the direction of the acceleration
+        force_mag = Particle.G * body.mass * self.mass / r**2 # Magnitude of the gravitational force
+        F_g = (force_mag/self.mass)*direction_vector'''
+
         self.velocity += self.acceleration*deltaT
+        self.position += self.velocity*deltaT
+
+    def resetGravitationalAcceleration(self):
+        self.acceleration = np.array([0,0,0], dtype=float)
 
     def updateGravitationalAcceleration(self, body):
         r = np.linalg.norm(body.position-self.position) # finds distance between 2 bodies
         direction_vector = (body.position-self.position)/r # unit vector for the direction of the acceleration
         force_mag = Particle.G * body.mass * self.mass / r**2 # Magnitude of the gravitational force
 
-        self.acceleration = (force_mag/self.mass)*direction_vector
+        self.acceleration += (force_mag/self.mass)*direction_vector
 
     def kineticEnergy(self):
         velocity_squared = np.linalg.norm(self.velocity)**2
