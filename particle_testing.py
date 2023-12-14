@@ -11,5 +11,6 @@ test1args = dict(
 Ball=Particle(**test1args)
 print(Ball)
 for i in range(5):
-     Ball.update(0.1)
+     Ball.updatePosition(0.1)
+     Ball.updateVelocity(0.1)
 print(Ball)

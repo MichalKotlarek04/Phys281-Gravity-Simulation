@@ -1,6 +1,5 @@
 from Particle import Particle 
-import matplotlib.pyplot as plt 
-import math
+import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -32,7 +31,8 @@ while Ball.position[1] > 0.0:
     time += deltaT
 
     # update the positions and velocities
-    Ball.update(deltaT)
+    Ball.updatePosition(deltaT)
+    Ball.updateVelocity(deltaT)
 
 
 # print out some information
