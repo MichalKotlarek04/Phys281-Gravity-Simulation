@@ -68,4 +68,3 @@ class Particle:
         GPE = Particle.G * self.mass * particle.mass/r # formula for gravitational potential energy
 
         return GPE
-

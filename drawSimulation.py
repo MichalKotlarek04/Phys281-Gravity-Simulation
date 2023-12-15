@@ -27,7 +27,7 @@ for body in bodiesList:
         bodyPosyList.append(dataIn[i][counter].position[1])
         bodyPoszList.append(dataIn[i][counter].position[2])
     ax.plot3D(bodyPosxList, bodyPosyList, bodyPoszList, label=dataIn[0][counter].name)
-    print_particle(dataIn[0][counter])
+    print_particle(dataIn[-1][counter])
     counter += 1
     # Creates the x,y and z position lists and plots them for each body.
 
