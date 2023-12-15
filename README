@@ -1,4 +1,3 @@
-# Phys281-Gravity-Simulation
 DEPENDENCIES: The project requires the following python packages: matplotlib, numpy, astropy, spiceypy, poliastro, copy
 
 TO RUN THE SIMULATION: run the Solar-System-Simulation.py file to generate the SimulationResults.npy file. To view the results of the simulation, run the drawSimulation.py file.
