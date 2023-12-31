@@ -1,3 +1,10 @@
+PROJECT SUMMARY: This was the coding project for my second-year physics coding module, PHYS281.
+This was my first major coding project, and I hope this may interest someone at some point.
+Currently the system simulated an N-body gravitational system over an arbitrary time period, and allows the user to display the bodies' positions over time after the simulation has been run.
+At some point in the future, I may update this project to draw a live animation as the simulation is being run.
+This project should be relatively straightforward to modify to your needs, such as adding other forces (e.g. electromagnetic), primarily by modifying the Particle and Simulation class files.
+
+
 DEPENDENCIES: The project requires the following python packages: matplotlib, numpy, astropy, spiceypy, poliastro
 
 TO RUN THE SIMULATION: run the Solar-System-Simulation.py file to generate the SimulationResults.npz file.
@@ -7,7 +14,7 @@ What each file does:
 Particle.py - contains the Particle class which provides the code necessary to simulate a body (assumed pointlike) of arbitrary mass, velocity, and position.
 initialState.py - contains the getBodyState class, which uses the astropy package to generate ephemerides for solar system objects.
 Simulation - contains the Simulation class, which is used to simulate an N-body gravitational system
-Solar-System-Simulation.py - contains some basic code use the Simulation class. By default, it contains the sun and the inner planets.
+Solar-System-Simulation.py - contains some basic code use the Simulation class. By default, it contains the srun and the inner planets. 
 drawSimulation.py - reads the SimulationResults.npy file, and displays the results of the simulation in a 3-dimensional pyplot.
 
 particle_testing.py - a unit test used early on to make sure the Particle class is working as expected.
